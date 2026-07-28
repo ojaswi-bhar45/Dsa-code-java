@@ -14,30 +14,50 @@ class Node{
 }
 public class practice_linked_list {
 
+    static Node deleteAtHead(Node head){
+        //List is empty
+        if(head == null){
+            return null;
+        }
+        //move head to next node
+
+        head = head.next;
+
+        return head;
+    }
+
+    //Print linked list
+
+    static void printList(Node head){
+        Node temp = head;
+
+        while(temp != null){
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+
+        System.out.println("null");
+    }
+
     public static void main(String[] args) {
 
     // Create the Node
     Node head = new Node(10);
+    Node second = new Node(20);
+    Node third = new Node(30);
+    Node fourth = new Node(40);
+
+    head.next = second;
+    second.next = third;
+    third.next = fourth;
 
 
-    Node newNode = new Node(5);
-        head.next = newNode;
-        newNode.next = null;
+        System.out.println("Before Deletion the node");
+        printList(head);
 
-        Node newNode2 = new Node(4);
-        head.next = newNode2;
-        newNode2.next = newNode;
+        head = deleteAtHead(head);
 
-
-    //Pint the list
-
-    Node temp = head;
-
-    while(temp != null) {
-        System.out.print(temp.data + "->");
-        temp = temp.next;
-    }
-
-        System.out.println("null");
+        System.out.println("After Deletion");
+        printList(head);
     }
 }
