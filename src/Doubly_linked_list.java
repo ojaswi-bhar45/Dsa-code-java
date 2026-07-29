@@ -22,12 +22,14 @@ public class Doubly_linked_list {
 
     }
 
-    static void insertAtStart(Node head, int data){
+    static Node insertAtStart(Node head, int data){
         Node temp = new Node(data);
 
         temp.next = head;
-        head.prev = temp;
-        head = temp;
+        if (head != null) {
+            head.prev = temp;
+        }
+        return temp;
 
     }
     public static void main(String[] args) {
@@ -41,7 +43,7 @@ public class Doubly_linked_list {
         System.out.print(" list is: ");
         printList(head);
 
-        insertAtStart(head, 20);
+        head = insertAtStart(head, 20);
 
         System.out.println("After inserting the node at the beginning:");
         printList(head);
